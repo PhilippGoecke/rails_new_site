@@ -4,8 +4,10 @@ rbenv local 3.0.3
 
 gem install rails
 
-rails new site
+rails new . --css=bootstrap --database=sqlite3 #--force
 
-cd site
+rails generate controller welcome index
 
-rails server
+sed -i 's/end/root "welcome#index"\nend/g' config/routes.rb
+
+rails server -b 0.0.0.0 -p 3000
