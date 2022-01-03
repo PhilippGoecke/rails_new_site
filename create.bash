@@ -6,7 +6,7 @@ rails new . --css=bootstrap --database=sqlite3 #--force
 
 rails generate controller welcome index
 
-sed -i 's/end/\n  root to: "welcome#index"\nend/g' config/routes.rb
+sed -i 's/\nend/\n\n  root to: "welcome#index"\nend/g' config/routes.rb
 
 bundle add devise
 rails generate devise:install
