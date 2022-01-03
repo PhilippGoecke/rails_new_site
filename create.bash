@@ -35,10 +35,6 @@ bundle add faker --group "test"
 
 bundle add factory_bot_rails --group "development, test"
 
-bundle add rspec-rails --group "development, test"
-rails generate rspec:install
-bundle exec rspec
-
 bundle add brakeman --group "development, test"
 sed -i '/brakeman/ s/$/, require: false/' Gemfile
 bundle exec brakeman > brakeman.findings
@@ -46,5 +42,15 @@ bundle exec brakeman > brakeman.findings
 bundle add bundler-audit --group "development, test"
 sed -i '/bundler-audit/ s/$/, require: false/' Gemfile
 bundle exec bundler-audit > bundler-audit.findings
+
+bundle add rspec-rails --group "development, test"
+rails generate rspec:install
+bundle exec rspec
+
+bundle add cucumber-rails --group "development, test"
+sed -i '/cucumber-rails/ s/$/, require: false/' Gemfile
+bundle add database_cleaner --group "development, test"
+rails generate cucumber:install
+bundle exec cucumber
 
 rails server -b 0.0.0.0 -p 3000
