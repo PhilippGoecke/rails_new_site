@@ -3,7 +3,7 @@
 ruby dependency:  
 rbenv  
 
-rails dependencies:
+rails dependencies:  
 curl -fsSL https://raw.githubusercontent.com/PhilippGoecke/rails_new_site/main/install.bash | bash  
 
 usage:  
