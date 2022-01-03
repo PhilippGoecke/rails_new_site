@@ -7,7 +7,7 @@ sudo apt install -y nodejs
 
 npm -v
 
-npm install --global yarn
+sudo npm install --global yarn
 
 yarn -v
 
