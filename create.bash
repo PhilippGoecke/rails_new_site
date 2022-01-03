@@ -1,3 +1,5 @@
+#!/bin/bash
+
 rbenv local 3.0.3
 
 gem install rails
