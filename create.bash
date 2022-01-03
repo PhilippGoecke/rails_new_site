@@ -14,4 +14,27 @@ sed -i 's/\nend/\n\n  config.action_mailer.default_url_options = { host: 'localh
 rails generate devise user
 rails db:migrate
 
+bundle add cancancan
+rails generate cancan:ability
+
+bundle add byebug --group "development, test"
+
+bundle add rubocop --group "development, test"
+sed -i 's/"rubocop"/"rubocop", require: false/g' Gemfile
+bundle exec rubocop > rubocop.findings
+
+bundle add faker --group "test"
+
+bundle add factory_bot_rails --group "development, test"
+
+bundle add rspec-rails --group "development, test"
+rails generate rspec:install
+bundle exec rspec
+
+bundle add brakeman --group "development, test"
+sed -i 's/"brakeman"/"brakeman", require: false/g' Gemfile
+
+bundle add bundler-audit --group "development, test"
+sed -i 's/"bundler-audit"/"bundler-audit", require: false/g' Gemfile
+
 rails server -b 0.0.0.0 -p 3000
