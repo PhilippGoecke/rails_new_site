@@ -25,10 +25,10 @@ bundle add rubocop --group "development, test"
 sed -i '/rubocop/ s/$/, require: false/' Gemfile
 bundle add rubocop-rails --group "development, test"
 sed -i '/rubocop-rails/ s/$/, require: false/' Gemfile
-echo "require: rubocop-rails\n" >> .rubocop.yml
+echo "require: rubocop-rails" >> .rubocop.yml
 bundle add rubocop-rspec --group "development, test"
 sed -i '/rubocop-rspec/ s/$/, require: false/' Gemfile
-echo "require: rubocop-rspec\n" >> .rubocop.yml
+echo "require: rubocop-rspec" >> .rubocop.yml
 bundle exec rubocop > rubocop.findings
 
 bundle add faker --group "test"
