@@ -20,7 +20,7 @@ rails generate cancan:ability
 bundle add byebug --group "development, test"
 
 bundle add rubocop --group "development, test"
-sed -i 's/"rubocop"/"rubocop", require: false/g' Gemfile
+sed '/rubocop/ s/$/, require: false/ Gemfile
 bundle exec rubocop > rubocop.findings
 
 bundle add faker --group "test"
@@ -32,9 +32,11 @@ rails generate rspec:install
 bundle exec rspec
 
 bundle add brakeman --group "development, test"
-sed -i 's/"brakeman"/"brakeman", require: false/g' Gemfile
+sed '/brakeman/ s/$/, require: false/ Gemfile
+bundle exec brakeman > brakeman.findings
 
 bundle add bundler-audit --group "development, test"
-sed -i 's/"bundler-audit"/"bundler-audit", require: false/g' Gemfile
+sed '/bundler-audit/ s/$/, require: false/ Gemfile
+bundle exec bundler-audit > bundler-audit.findings
 
 rails server -b 0.0.0.0 -p 3000
