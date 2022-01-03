@@ -2,7 +2,7 @@
 
 rbenv local 3.0.3
 
-gem install rails
+gem install rails #-v 7.0.0
 
 rails new . --css=bootstrap --database=sqlite3 #--force --minimal
 
