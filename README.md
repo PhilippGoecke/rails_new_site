@@ -4,7 +4,7 @@ Source:
 https://github.com/nodesource/distributions  
 
 dependencies:  
-apt install gpg curl  
+apt install gpg curl lsb_release  
 
 ruby dependency:  
 rbenv (e.g. https://github.com/PhilippGoecke/wsl-rbenv)  
