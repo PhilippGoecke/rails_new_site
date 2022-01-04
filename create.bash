@@ -25,7 +25,7 @@ bundle add rubocop --group "development, test"
 sed -i '/rubocop/ s/$/, require: false/' Gemfile
 bundle add rubocop-rails --group "development, test"
 sed -i '/rubocop-rails/ s/$/, require: false/' Gemfile
-echo "require:\n  - rubocop-rails" >> .rubocop.yml
+echo -e "require:\n  - rubocop-rails" >> .rubocop.yml
 bundle add rubocop-rspec --group "development, test"
 sed -i '/rubocop-rspec/ s/$/, require: false/' Gemfile
 echo "  - rubocop-rspec" >> .rubocop.yml
