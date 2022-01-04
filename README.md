@@ -1,5 +1,11 @@
 # Debian (-based) rails new site  
 
+Source:
+https://github.com/nodesource/distributions
+
+dependencies:  
+apt install gpg curl  
+
 ruby dependency:  
 rbenv  
 
