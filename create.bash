@@ -54,4 +54,8 @@ bundle add database_cleaner --group "development, test"
 bundle exec rails generate cucumber:install
 bundle exec cucumber
 
+bundle outdated
+yarn outdated
+yarn audit
+
 bundle exec rails server -b 0.0.0.0 -p 3000
