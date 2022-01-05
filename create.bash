@@ -2,23 +2,24 @@
 
 rbenv local 3.0.3
 
-gem install rails -v 7.0
-gem list rails --local
+bundle init
+bundle add rails --version 7.0
+bundle install
 
-rails _7.0_ new . --css=bootstrap --database=sqlite3 #--force --minimal
+bundle exec rails new . --force --css=bootstrap --database=sqlite3 # --minimal
 
-rails generate controller welcome index
+bundle exec rails generate controller welcome index
 
 sed -i 's/end/\n  root to: "welcome#index"\nend/g' config/routes.rb
 
 bundle add devise
-rails generate devise:install
+bundle exec rails generate devise:install
 sed -i 's/\nend/\n\n  config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }\nend/g' config/environments/development.rb
-rails generate devise user
-rails db:migrate
+bundle exec rails generate devise user
+bundle exec rails db:migrate
 
 bundle add cancancan
-rails generate cancan:ability
+bundle exec rails generate cancan:ability
 
 bundle add byebug --group "development, test"
 
@@ -45,13 +46,13 @@ sed -i '/bundler-audit/ s/$/, require: false/' Gemfile
 bundle exec bundler-audit > bundler-audit.findings
 
 bundle add rspec-rails --group "development, test"
-rails generate rspec:install
+bundle exec rails generate rspec:install
 bundle exec rspec
 
 bundle add cucumber-rails --group "development, test"
 sed -i '/cucumber-rails/ s/$/, require: false/' Gemfile
 bundle add database_cleaner --group "development, test"
-rails generate cucumber:install
+bundle exec rails generate cucumber:install
 bundle exec cucumber
 
-rails server -b 0.0.0.0 -p 3000
+bundle exec rails server -b 0.0.0.0 -p 3000
