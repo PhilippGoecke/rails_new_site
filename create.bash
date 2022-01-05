@@ -2,9 +2,10 @@
 
 rbenv local 3.0.3
 
-gem install rails #-v 7.0.0
+gem install rails -v 7.0
+gem list rails --local
 
-rails new . --css=bootstrap --database=sqlite3 #--force --minimal
+rails _7.0_ new . --css=bootstrap --database=sqlite3 #--force --minimal
 
 rails generate controller welcome index
 
