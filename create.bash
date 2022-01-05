@@ -9,7 +9,6 @@ bundle install
 bundle exec rails new . --force --css=bootstrap --database=sqlite3 # --minimal
 
 bundle exec rails generate controller welcome index
-
 sed -i 's/end/\n  root to: "welcome#index"\nend/g' config/routes.rb
 
 bundle add devise
