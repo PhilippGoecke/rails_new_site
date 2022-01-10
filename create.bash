@@ -16,6 +16,8 @@ bundle exec rails generate devise:install
 sed -i 's/\nend/\n\n  config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }\nend/g' config/environments/development.rb
 bundle exec rails generate devise user
 bundle exec rails db:migrate
+bundle add devise-security
+rails generate devise_security:install
 
 bundle add cancancan
 bundle exec rails generate cancan:ability
