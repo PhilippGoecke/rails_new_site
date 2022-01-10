@@ -6,6 +6,8 @@ set -o pipefail
 IFS=$'\n'
 
 git init
+git add .
+git commit -m "Initial commit"
 
 set -f
 while IFS= read -r cmd; do
