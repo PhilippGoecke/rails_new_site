@@ -18,5 +18,8 @@ while IFS= read -r cmd; do
 
   git add --all .
   git commit -am "${cmd//\"/\\\"}"
+
+  wait
+  sleep 1
 done < <(curl -fsSL https://raw.githubusercontent.com/PhilippGoecke/rails_new_site/main/create.bash)
 set +f
