@@ -2,6 +2,8 @@
 
 rbenv local 3.0.3
 
+gem install bundler
+
 bundle init
 bundle add rails --version 7.0
 bundle install
