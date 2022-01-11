@@ -6,6 +6,7 @@ set -o pipefail
 IFS=$'\n'
 
 git init
+sleep 1
 git add --all .
 git commit -m "Initial commit"
 
