@@ -8,7 +8,7 @@ bundle init
 bundle add rails --version 7.0
 bundle install
 
-bundle exec rails new . --force --css=bootstrap --database=sqlite3 # --minimal
+bundle exec rails new . --force --skip-git --css=bootstrap --database=sqlite3 # --minimal
 
 bundle exec rails about > rails_about.txt
 
