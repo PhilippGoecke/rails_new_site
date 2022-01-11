@@ -12,6 +12,9 @@ bundle exec rails new . --force --skip-git --css=bootstrap --database=sqlite3 # 
 
 bundle exec rails about > rails_about.txt
 
+bundle add rails-i18n
+sed -i 's/  end/\n    config.i18n.default_locale = :de\n  end/g' config/application.rb
+
 bundle exec rails generate controller welcome index
 sed -i 's/end/\n  root to: "welcome#index"\nend/g' config/routes.rb
 
