@@ -64,4 +64,15 @@ bundle outdated
 yarn outdated
 yarn audit
 
+rails generate scaffold Post title:string content:text active:boolean context:integer
+sed -i 's/end/\n  enum context: [:windows, :linux, :osx, :other]\nend/g' app/models/post.rb
+sed -i 's/end/\n  validates :title, presence: true, length: { minimum: 5 }\nend/g' app/models/post.rb
+sed -i 's/end/\n  scope :only_active, -> { where(active: true) }\nend/g' app/models/post.rb
+sed -i 's/<%= form.number_field :context %>/<%= form.select :context, Post.contexts.keys.to_a %>/g' app/views/posts/_form.html.erb
+rails db:migrate
+rails generate model Comment commenter:string body:text post:references
+sed -i 's/end/\n  has_many :comments\nend/g' app/models/post.rb
+sed -i 's/end/\n  belongs_to :post\nend/g' app/models/comment.rb
+rails db:migrate
+
 bundle exec rails server -b 0.0.0.0 -p 3000
