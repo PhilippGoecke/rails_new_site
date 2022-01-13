@@ -72,10 +72,12 @@ sed -i 's/end/\n  enum context: [:windows, :linux, :osx, :other]\nend/g' app/mod
 sed -i 's/end/\n  validates :title, presence: true, length: { minimum: 5 }\nend/g' app/models/post.rb
 sed -i 's/end/\n  scope :only_active, -> { where(active: true) }\nend/g' app/models/post.rb
 sed -i 's/<%= form.number_field :context %>/<%= form.select :context, Post.contexts.keys.to_a %>/g' app/views/posts/_form.html.erb
+sed -i 's/    </p>/    </p>\n    <hr>\n/g' app/views/posts/index.html.erb
 bundle exec rails db:migrate
 bundle exec rails generate resource Comment commenter:string body:text post:references
 sed -i 's/end/\n  has_many :comments, dependent: :destroy\nend/g' app/models/post.rb
 #sed -i 's/belongs_to :post/belongs_to :post, dependent: :destroy/g' app/models/comment.rb
+
 bundle exec rails db:migrate
 
 bundle exec rails server -b 0.0.0.0 -p 3000
