@@ -42,6 +42,7 @@ echo "  - rubocop-rspec" >> .rubocop.yml
 bundle add rubocop-performance --group "development, test"
 sed -i '/rubocop-performance/ s/$/, require: false/' Gemfile
 echo "  - rubocop-performance" >> .rubocop.yml
+echo "AllCops:\n  NewCops: enable" >> .rubocop.yml
 bundle exec rubocop > rubocop.findings
 
 bundle add faker --group "test"
@@ -80,7 +81,7 @@ bundle exec rails db:migrate
 bundle exec rails generate resource Comment commenter:string body:text post:references
 sed -i 's/end/\n  has_many :comments, dependent: :destroy\nend/g' app/models/post.rb
 #sed -i 's/belongs_to :post/belongs_to :post, dependent: :destroy/g' app/models/comment.rb
-sed -i 's/resources :posts/resources :posts do\n    #collection\n    member do\n      get :comments\n    end\n  end\n/g' config/routes.rb
+sed -i 's/resources :posts/resources :posts do\n    #collection\n    member do\n      get 'comments'\n    end\n  end\n/g' config/routes.rb
 
 bundle exec rails db:migrate
 
