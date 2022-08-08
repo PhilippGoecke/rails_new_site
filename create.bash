@@ -1,11 +1,11 @@
 #!/bin/bash
 
-rbenv local 3.0.3
+rbenv local 3.0.4
 
 gem install bundler
 
 bundle init
-bundle add rails --version 7.0
+bundle add rails --version 7.0.3.1
 bundle install
 
 bundle exec rails new . --force --skip-git --css=bootstrap --database=sqlite3 # --minimal
@@ -39,6 +39,9 @@ echo -e "require:\n  - rubocop-rails" >> .rubocop.yml
 bundle add rubocop-rspec --group "development, test"
 sed -i '/rubocop-rspec/ s/$/, require: false/' Gemfile
 echo "  - rubocop-rspec" >> .rubocop.yml
+bundle add rubocop-performance --group "development, test"
+sed -i '/rubocop-performance/ s/$/, require: false/' Gemfile
+echo "  - rubocop-performance" >> .rubocop.yml
 bundle exec rubocop > rubocop.findings
 
 bundle add faker --group "test"
