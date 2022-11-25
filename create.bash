@@ -1,6 +1,6 @@
 #!/bin/bash
 
-rbenv local 3.0.4
+rbenv local 3.0.5
 
 gem install bundler
 
