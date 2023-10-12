@@ -5,7 +5,7 @@ rbenv local 3.1.4
 gem install bundler
 
 bundle init
-bundle add rails --version 7.0.7
+bundle add rails --version 7.1.1
 bundle install
 
 bundle exec rails new . --force --skip-git --css=bootstrap --database=sqlite3 # --minimal
