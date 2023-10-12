@@ -2,6 +2,8 @@
 
 sudo apt install libsqlite3-dev
 
+sudo apt install libyaml-dev
+
 #curl -fsSL https://deb.nodesource.com/setup_lts.x | sudo -E bash -
 KEYRING=/usr/share/keyrings/nodesource.gpg
 curl -fsSL https://deb.nodesource.com/gpgkey/nodesource.gpg.key | gpg --dearmor | sudo tee "$KEYRING" >/dev/null
