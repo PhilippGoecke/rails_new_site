@@ -5,6 +5,7 @@ rbenv local 3.1.4
 gem install bundler
 
 bundle init
+bundle config set --local path vendor/bundle
 bundle add rails --version 7.1.1
 bundle install
 
